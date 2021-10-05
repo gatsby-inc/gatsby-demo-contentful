@@ -7,30 +7,51 @@
   Gatsby's Contentful demo
 </h1>
 
-Kick off your project with this Contentful boilerplate. This demo ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+<h3 align="center">
+  ⚛️ 📄 🚀
+</h3>
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
+<p align="center">
+  <strong>Blazing fast modern site generator for React</strong><br>
+  Go beyond static sites: build blogs, e-commerce sites, full-blown apps, and more with Gatsby.
+</p>
+
+<p align="center">
+  <i>Have another more specific idea?<br />You may want to check out our vibrant collection of <a href='https://www.gatsbyjs.com/docs/gatsby-starters/'>official and community-created starters</a>.</i>
+</p>
+
+## 👀 Live preview
+
+[https://gatsbydemocontentful.gatsbyjs.io/](https://gatsbydemocontentful.gatsbyjs.io/)
 
 ## 🚀 Quick start
 
 1.  **Clone this repo.**
 
-    Use your terminal to clone this repository
+    Use your terminal to clone this repository.
 
     ```shell
-      git clone https://github.com/gatsby-inc/gatsby-demo-contentful.git
+    git clone https://github.com/gatsby-inc/gatsby-demo-contentful.git
     ```
 
-1.  **Start developing.**
+2.  **Install dependencies.**
 
-    Navigate into your new site’s directory and start it up.
+    Navigate into your new site’s directory and install the dependencies.
 
     ```shell
     cd gatsby-contentful-demo
+    npm install
+    ```
+
+3.  **Start developing.**
+
+    Start the development server.
+
+    ```shell
     npm run develop
     ```
 
-1.  **Open the source code and start editing!**
+4.  **Open the source code and start editing!**
 
     Your site is now running at `http://localhost:8000`!
 
@@ -40,13 +61,13 @@ _Have another more specific idea? You may want to check out our vibrant collecti
 
 ## 🚀 Quick start (Gatsby Cloud)
 
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
+Deploy this demo with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
 
 [<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-contentful-demo)
 
 ## 🧐 What's inside?
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+A quick look at the top-level files and directories you'll see in this Gatsby demo.
 
     .
     ├── node_modules
@@ -61,7 +82,9 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
     ├── LICENSE
     ├── package-lock.json
     ├── package.json
-    └── README.md
+    ├── postcss.config.js
+    ├── README.md
+    └── tailwind.config.js
 
 1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
 
@@ -81,13 +104,17 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 
 9.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
 
-10. **`LICENSE`**: This Gatsby starter is licensed under the 0BSD license. This means that you can see this file as a placeholder and replace it with your own license.
+10. **`LICENSE`**: This Gatsby demo is licensed under the 0BSD license. This means that you can see this file as a placeholder and replace it with your own license.
 
 11. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
 
 12. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
 
-13. **`README.md`**: A text file containing useful reference information about your project.
+13. **`postcss.config.js`**: A JavaScript [PostCSS](https://postcss.org/ config file for [TailwindCSS](https://tailwindcss.com/).
+
+14. **`README.md`**: A text file containing useful reference information about your project.
+
+15. **`tailwind.config.js`**: A JavaScript config file for [TailwindCSS](https://tailwindcss.com/).
 
 ## 🎓 Learning Gatsby
 
