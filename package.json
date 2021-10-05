@@ -1,0 +1,39 @@
+{
+  "name": "gatsby-demo-contentful",
+  "version": "1.0.0",
+  "description": "Gatsby + Contenful demo",
+  "main": "index.js",
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "serve": "gatsby serve",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gatsby-inc/gatsby-demo-contentful.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gatsby-inc/gatsby-demo-contentful/issues"
+  },
+  "homepage": "https://github.com/gatsby-inc/gatsby-demo-contentful#readme",
+  "dependencies": {
+    "autoprefixer": "^10.3.7",
+    "gatsby": "^3.14.1",
+    "gatsby-plugin-postcss": "^4.14.0",
+    "postcss": "^8.3.9",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "tailwindcss": "^2.2.16"
+  },
+  "devDependencies": {
+    "husky": "^7.0.2",
+    "prettier": "^2.4.1"
+  }
+}
