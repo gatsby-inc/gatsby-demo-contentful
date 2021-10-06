@@ -1,11 +1,13 @@
 import React from 'react'
 import Seo from './seo'
+import Header from './header'
 
 const RootElement = ({ children }) => {
   return (
     <>
       <Seo />
-      {children}
+      <Header />
+      <main className="container mx-auto px-4">{children}</main>
     </>
   )
 }
