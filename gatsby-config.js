@@ -8,5 +8,20 @@ module.exports = {
     language: 'en-us',
     keywords: ['gatsby', 'gatsbyjs contentful'],
   },
-  plugins: ['gatsby-plugin-postcss', 'gatsby-plugin-react-helmet'],
+  plugins: [
+    'gatsby-plugin-postcss',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-image',
+    {
+      resolve: 'gatsby-plugin-sharp',
+      options: {
+        defaults: {
+          quality: 70,
+          formats: ['auto', 'webp', 'avif'],
+          placeholder: 'blurred',
+        },
+      },
+    },
+    'gatsby-transformer-sharp',
+  ],
 }
