@@ -3,7 +3,7 @@ import { StaticImage } from 'gatsby-plugin-image'
 
 const Page = () => {
   return (
-    <div className="min-h-75vh flex justify-center md:justify-start">
+    <div className="min-h-75vh flex justify-center md:justify-start mt-20 md:mt-8">
       <div className="grid md:grid-cols-2 gap-10 items-center">
         <div className="grid gap-4 md:gap-10">
           <h1 className="text-4xl sm:text-5xl text-center md:text-left font-black text-brand-primary leading-tight">

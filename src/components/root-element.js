@@ -7,7 +7,7 @@ const RootElement = ({ children }) => {
     <>
       <Seo />
       <Header />
-      <main className="container mx-auto px-4 mt-20 md:mt-8">{children}</main>
+      <main className="container mx-auto px-4">{children}</main>
     </>
   )
 }
