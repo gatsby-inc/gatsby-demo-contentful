@@ -27,8 +27,10 @@ const Header = () => {
         </Link>
         <div className="flex flex-grow items-center text-sm text-gray-600">
           <ul
-            className={`fixed sm:relative sm:flex px-6 w-full h-screen sm:w-auto sm:h-auto py-12 sm:p-0 flex-grow flex-col sm:flex-row top-0 bg-white leading-8 z-nav shadow-lg sm:shadow-none transition-left sm:transition-none duration-500 ease-in-out 
-            ${isNavOpen ? 'left-0 ' : 'left-full sm:left-0'}`}
+            className={`fixed sm:relative sm:flex px-6 w-full h-screen sm:w-auto sm:h-auto py-12 sm:p-0 flex-grow flex-col sm:flex-row top-0 bg-white sm:opacity-100 leading-8 z-nav shadow-lg sm:shadow-none transition-left sm:transition-none duration-500 ease-in-out 
+            ${
+              isNavOpen ? 'left-0 opacity-100' : 'left-full sm:left-0 opacity-0'
+            }`}
           >
             <li>
               <Link to="/about" className="p-2 hover:underline">
@@ -50,10 +52,8 @@ const Header = () => {
             </li>
           </ul>
           <div
-            className={`${
-              isNavOpen
-                ? 'fixed top-5 right-5'
-                : 'flex flex-grow justify-end sm:hidden'
+            className={`sm:hidden ${
+              isNavOpen ? 'fixed top-5 right-5' : 'flex flex-grow justify-end'
             } z-nav`}
           >
             <button
