@@ -6,7 +6,7 @@ const Page = () => {
     <div className="min-h-75vh flex justify-center md:justify-start">
       <div className="grid md:grid-cols-2 gap-10 items-center">
         <div className="grid gap-4 md:gap-10">
-          <h1 className="text-3xl md:text-5xl text-center md:text-left font-black text-brand-primary leading-tight">
+          <h1 className="text-4xl sm:text-5xl text-center md:text-left font-black text-brand-primary leading-tight">
             <span className="text-black">Lorem ipsum.</span>
             <br />
             Consectetur elit.
@@ -18,7 +18,7 @@ const Page = () => {
           </p>
         </div>
 
-        <div>
+        <div className="px-6 md:px-0">
           <StaticImage
             src="../../static/images/index-page-hero.jpg"
             alt="Hero image"

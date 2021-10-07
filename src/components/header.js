@@ -50,7 +50,7 @@ const Header = () => {
             <li className="flex-grow sm:text-right">
               <Link
                 to="/contact"
-                className="px-2 sm:px-4 py-1 sm:py-2 sm:bg-brand-primary text-gray-600 sm:text-white sm:rounded hover:underline"
+                className="px-2 sm:px-4 py-1 sm:py-2 sm:bg-brand-default text-gray-600 sm:text-white sm:rounded hover:underline"
               >
                 Contact
               </Link>

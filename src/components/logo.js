@@ -3,7 +3,12 @@ import React from 'react'
 const Logo = () => {
   return (
     <svg width="5.6875rem" height="1.5rem" viewBox="0 0 182 48" fill="#000000">
-      <circle fill="#663399" cx="23.3" cy="24" r="23.2" />
+      <circle
+        cx="23.3"
+        cy="24"
+        r="23.2"
+        className="fill-current text-brand-default"
+      />
       <g>
         <path d="M79.5,31.6H69.3l-2.2,5.3h-5.3l10.9-25.3h3.9l10.6,25.3h-5.3L79.5,31.6z M78.1,27.6l-3.6-9.1l-3.6,9.1H78.1z" />
         <path
