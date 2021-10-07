@@ -20,29 +20,23 @@ const Header = () => {
   }, [])
 
   return (
-    <header className="container mx-auto px-4">
-      <nav role="navigation" className="flex items-center py-4 sm:text-sm">
-        <Link to="/" className="mr-3">
+    <header className="container mx-auto p-5">
+      <nav role="navigation" className="flex items-center">
+        <Link to="/" className="mr-3 py-1">
           <Logo />
         </Link>
-        <div className="flex flex-grow">
+        <div className="flex flex-grow items-center text-sm text-gray-600">
           <ul
-            className={`absolute sm:relative sm:flex px-6 w-full h-screen sm:w-auto sm:h-auto py-12 sm:p-0 flex-grow flex-col sm:flex-row top-0 bg-white leading-8 z-nav shadow-lg sm:shadow-none transition-left sm:transition-none duration-500 ease-in-out 
+            className={`fixed sm:relative sm:flex px-6 w-full h-screen sm:w-auto sm:h-auto py-12 sm:p-0 flex-grow flex-col sm:flex-row top-0 bg-white leading-8 z-nav shadow-lg sm:shadow-none transition-left sm:transition-none duration-500 ease-in-out 
             ${isNavOpen ? 'left-0 ' : 'left-full sm:left-0'}`}
           >
             <li>
-              <Link
-                to="/about"
-                className="text-gray-600 px-2 py-1 hover:underline"
-              >
+              <Link to="/about" className="p-2 hover:underline">
                 About
               </Link>
             </li>
             <li>
-              <Link
-                to="/blog"
-                className="text-gray-600 px-2 py-1 hover:underline"
-              >
+              <Link to="/blog" className="p-2 hover:underline">
                 Blog
               </Link>
             </li>
@@ -55,7 +49,13 @@ const Header = () => {
               </Link>
             </li>
           </ul>
-          <div className="flex flex-grow justify-end sm:hidden z-nav">
+          <div
+            className={`${
+              isNavOpen
+                ? 'fixed top-5 right-5'
+                : 'flex flex-grow justify-end sm:hidden'
+            } z-nav`}
+          >
             <button
               aria-expanded={isNavOpen}
               aria-label={`${isNavOpen ? 'Close' : 'Open'} navigation`}
