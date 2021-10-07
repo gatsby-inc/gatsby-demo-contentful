@@ -3,8 +3,6 @@ import { globalHistory } from '@reach/router'
 import { Link } from 'gatsby'
 
 import Logo from './logo'
-import MenuButton from './menu-button'
-import CloseButton from './close-button'
 
 const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false)
@@ -59,11 +57,31 @@ const Header = () => {
             </li>
           </ul>
           <div className="flex flex-grow justify-end sm:hidden z-nav">
-            {isNavOpen ? (
-              <CloseButton onClick={handleNav} />
-            ) : (
-              <MenuButton onClick={handleNav} />
-            )}
+            <button
+              aria-expanded={isNavOpen}
+              aria-label={`${isNavOpen ? 'Close' : 'Open'} navigation`}
+              className="px-2 py-1"
+              onClick={handleNav}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d={
+                    isNavOpen
+                      ? 'M6 18L18 6M6 6l12 12'
+                      : 'M4 6h16M4 12h16m-7 6h7'
+                  }
+                />
+              </svg>
+            </button>
           </div>
         </div>
       </nav>
