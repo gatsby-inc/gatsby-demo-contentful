@@ -18,6 +18,9 @@ module.exports = {
       fontSize: {
         xxs: '.6rem',
       },
+      transitionProperty: {
+        left: 'left',
+      },
       zIndex: {
         nav: '999',
       },

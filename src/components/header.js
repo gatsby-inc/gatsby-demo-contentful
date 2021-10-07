@@ -27,9 +27,8 @@ const Header = () => {
         </Link>
         <div className="flex flex-grow">
           <ul
-            className={`${
-              isNavOpen ? 'absolute top-0 left-0 bg-white' : 'hidden'
-            } sm:relative sm:flex px-6 w-full h-screen sm:w-auto sm:h-auto py-12 sm:p-0 flex-grow flex-col sm:flex-row leading-8`}
+            className={`absolute sm:relative sm:flex px-6 w-full h-screen sm:w-auto sm:h-auto py-12 sm:p-0 flex-grow flex-col sm:flex-row top-0 bg-white leading-8 z-nav shadow-lg sm:shadow-none transition-left sm:transition-none duration-500 ease-in-out 
+            ${isNavOpen ? 'left-0 ' : 'left-full sm:left-0'}`}
           >
             <li>
               <Link
