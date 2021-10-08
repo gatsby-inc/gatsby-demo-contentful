@@ -19,6 +19,9 @@ module.exports = {
       fontSize: {
         xxs: '.6rem',
       },
+      gridTemplateColumns: {
+        blog: '1fr auto',
+      },
       transitionProperty: {
         left: 'left',
       },

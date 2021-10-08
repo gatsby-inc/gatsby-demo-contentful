@@ -4,8 +4,14 @@ import { Link } from 'gatsby'
 
 import Logo from './logo'
 
+import usePrimaryLinks from '../hooks/usePrimaryLinks'
+import usePrimaryButtons from '../hooks/usePrimaryButtons'
+
 const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false)
+
+  const links = usePrimaryLinks()
+  const buttons = usePrimaryButtons()
 
   const handleNav = () => {
     setIsNavOpen(!isNavOpen)
@@ -32,24 +38,32 @@ const Header = () => {
               isNavOpen ? 'left-0 opacity-100' : 'left-full sm:left-0 opacity-0'
             }`}
           >
-            <li>
-              <Link to="/about" className="p-2 hover:underline">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link to="/blog" className="p-2 hover:underline">
-                Blog
-              </Link>
-            </li>
-            <li className="flex-grow sm:text-right">
-              <Link
-                to="/contact"
-                className="px-2 sm:px-4 py-1 sm:py-2 sm:bg-brand-default text-gray-600 sm:text-white sm:rounded hover:underline"
-              >
-                Contact
-              </Link>
-            </li>
+            {links.map((link, index) => {
+              const { linkText, linkUrl } = link
+
+              return (
+                <li key={index}>
+                  <Link to={`/${linkUrl}`} className="p-2 hover:underline">
+                    {linkText}
+                  </Link>
+                </li>
+              )
+            })}
+
+            {buttons.map((button, index) => {
+              const { linkText, linkUrl } = button
+
+              return (
+                <li key={index} className="flex-grow sm:text-right">
+                  <Link
+                    to={`/${linkUrl}`}
+                    className="px-2 sm:px-4 py-1 sm:py-2 sm:bg-brand-default text-gray-600 sm:text-white sm:rounded hover:underline"
+                  >
+                    {linkText}
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
           <div
             className={`sm:hidden ${
