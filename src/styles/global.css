@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* TODO this is for anchor tags within p from Contentful */
+a {
+  color: #663399;
+  text-decoration: underline;
+}

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-const Seo = ({ customTitle, customDescription, customUrl }) => {
+const Seo = ({ customTitle, customDescription, customUrl, customImage }) => {
   const {
     site: {
       siteMetadata: { url, title, image, description, language, keywords },
@@ -26,6 +26,7 @@ const Seo = ({ customTitle, customDescription, customUrl }) => {
   const seoTitle = customTitle || title
   const seoDescription = customDescription || description
   const seoUrl = customUrl ? `${url}/${customUrl}` : url
+  const seoImage = customImage || image
 
   return (
     <Helmet>
@@ -37,7 +38,7 @@ const Seo = ({ customTitle, customDescription, customUrl }) => {
       {/* Primary Meta Tags */}
       <meta name="title" content={seoTitle} />
       <meta name="description" content={seoDescription} />
-      <meta name="image" content={`${url}/${image}`} />
+      <meta name="image" content={`${url}/${seoImage}`} />
       <meta name="keywords" content={keywords ? keywords.join(', ') : null} />
 
       {/* Open Graph / Facebook  */}
@@ -45,14 +46,14 @@ const Seo = ({ customTitle, customDescription, customUrl }) => {
       <meta property="og:url" content={seoUrl} />
       <meta property="og:title" content={seoTitle} />
       <meta property="og:description" content={seoDescription} />
-      <meta property="og:image" content={`${url}/${image}`} />
+      <meta property="og:image" content={`${url}/${seoImage}`} />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:url" content={seoUrl} />
       <meta name="twitter:title" content={seoTitle} />
       <meta name="twitter:description" content={seoDescription} />
-      <meta name="twitter:image" content={`${url}/${image}`} />
+      <meta name="twitter:image" content={`${url}/${seoImage}`} />
 
       {/* favicon */}
       <link
@@ -80,6 +81,8 @@ Seo.propTypes = {
   customDescription: PropTypes.string,
   /** A custom meta url that overwrites the default url */
   customUrl: PropTypes.string,
+  /** A custom open graph image that overwrites the default image */
+  customImage: PropTypes.string,
 }
 
 export default Seo
