@@ -24,7 +24,7 @@ const Post = ({
         customTitle={seoTitle}
         customDescription={seoDescription}
         customUrl={url}
-        customImage={gatsbyImageData.images.fallback.src}
+        customImage={gatsbyImageData.images.fallback.src.replace(/\/\//g, '')}
       />
       <article className="max-w-screen-lg mx-auto">
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-blog">

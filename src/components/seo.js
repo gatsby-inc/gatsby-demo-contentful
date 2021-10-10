@@ -26,7 +26,7 @@ const Seo = ({ customTitle, customDescription, customUrl, customImage }) => {
   const seoTitle = customTitle || title
   const seoDescription = customDescription || description
   const seoUrl = customUrl ? `${url}/${customUrl}` : url
-  const seoImage = customImage || image
+  const seoImage = customImage ? `https://${customImage}` : `${url}/${image}`
 
   return (
     <Helmet>
@@ -38,7 +38,7 @@ const Seo = ({ customTitle, customDescription, customUrl, customImage }) => {
       {/* Primary Meta Tags */}
       <meta name="title" content={seoTitle} />
       <meta name="description" content={seoDescription} />
-      <meta name="image" content={`${url}/${seoImage}`} />
+      <meta name="image" content={seoImage} />
       <meta name="keywords" content={keywords ? keywords.join(', ') : null} />
 
       {/* Open Graph / Facebook  */}
@@ -46,14 +46,14 @@ const Seo = ({ customTitle, customDescription, customUrl, customImage }) => {
       <meta property="og:url" content={seoUrl} />
       <meta property="og:title" content={seoTitle} />
       <meta property="og:description" content={seoDescription} />
-      <meta property="og:image" content={`${url}/${seoImage}`} />
+      <meta property="og:image" content={seoImage} />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:url" content={seoUrl} />
       <meta name="twitter:title" content={seoTitle} />
       <meta name="twitter:description" content={seoDescription} />
-      <meta name="twitter:image" content={`${url}/${seoImage}`} />
+      <meta name="twitter:image" content={seoImage} />
 
       {/* favicon */}
       <link

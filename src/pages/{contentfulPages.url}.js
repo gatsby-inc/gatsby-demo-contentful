@@ -7,8 +7,6 @@ const Page = ({
     contentfulPages: { pageName },
   },
 }) => {
-  console.log({ data })
-
   return (
     <div className="max-w-screen-lg mx-auto">
       <div className="grid gap-10">
