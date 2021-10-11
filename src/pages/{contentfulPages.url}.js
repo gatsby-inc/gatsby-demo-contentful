@@ -1,20 +1,32 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
+import Home from '../views/home'
+import Blog from '../views/blog'
+import Default from '../views/default'
+import Seo from '../components/seo'
+
+const getView = (url, pageName) => {
+  switch (url) {
+    case '/':
+      return <Home />
+    case 'blog':
+      return <Blog pageName={pageName} />
+    default:
+      return <Default pageName={pageName} />
+  }
+}
+
 const Page = ({
-  data,
   data: {
-    contentfulPages: { pageName },
+    contentfulPages: { url, pageName },
   },
 }) => {
   return (
-    <div className="max-w-screen-lg mx-auto">
-      <div className="grid gap-10">
-        <h1 className="text-4xl sm:text-5xl text-left font-black text-brand-primary leading-tight">
-          {pageName}
-        </h1>
-      </div>
-    </div>
+    <>
+      <Seo customTitle={pageName} />
+      {getView(url, pageName)}
+    </>
   )
 }
 
@@ -24,23 +36,7 @@ export const query = graphql`
   query ($id: String) {
     contentfulPages(id: { eq: $id }) {
       url
-      seoTitle
-      seoDescription {
-        seoDescription
-      }
       pageName
-      createdAt
-      pageBlocks {
-        primaryHeading
-        secondaryHeading
-        columns
-        columnContent {
-          blockName
-        }
-        blockStylesReference {
-          blockName
-        }
-      }
     }
   }
 `

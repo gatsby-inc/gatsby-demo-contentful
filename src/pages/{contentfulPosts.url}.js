@@ -29,7 +29,7 @@ const Post = ({
       <article className="max-w-screen-lg mx-auto">
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-blog">
           <div>
-            <h1 className="text-4xl sm:text-5xl text-left font-black text-brand-primary leading-tight">
+            <h1 className="text-4xl sm:text-5xl text-left font-black text-gray-700 leading-tight">
               {postTitle}
             </h1>
           </div>

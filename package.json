@@ -21,7 +21,7 @@
     "gatsbyjs",
     "contentful"
   ],
-  "author": "Paul Scanlon <paul@gatsbyjs.com>",
+  "author": "Paul Scanlon <paul.scanlon@gatsbyjs.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/gatsby-inc/gatsby-demo-contentful/issues"

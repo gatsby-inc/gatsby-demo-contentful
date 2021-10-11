@@ -9,7 +9,9 @@ const RootElement = ({ children }) => {
     <>
       <Seo />
       <Header />
-      <main className="container mx-auto px-4 min-h-100vh">{children}</main>
+      <main className="container mx-auto px-4 py-10 sm:py-20 min-h-75vh">
+        {children}
+      </main>
       <Footer />
     </>
   )

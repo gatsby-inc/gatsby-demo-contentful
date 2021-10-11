@@ -21,6 +21,7 @@ const Footer = () => {
                   <Link
                     to={`/${linkUrl}`}
                     className="px-2 py-1 hover:underline"
+                    activeClassName="underline text-black cursor-auto"
                   >
                     {linkText}
                   </Link>

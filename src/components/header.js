@@ -28,7 +28,7 @@ const Header = () => {
   return (
     <header className="container mx-auto p-5">
       <nav role="navigation" className="flex items-center">
-        <Link to="/" className="mr-3 py-1">
+        <Link to="/" className="mr-3 py-1" activeClassName="cursor-auto">
           <Logo />
         </Link>
         <div className="flex flex-grow items-center text-sm text-gray-600">
@@ -43,7 +43,12 @@ const Header = () => {
 
               return (
                 <li key={index}>
-                  <Link to={`/${linkUrl}`} className="p-2 hover:underline">
+                  <Link
+                    to={`/${linkUrl}`}
+                    className="p-2 hover:underline"
+                    activeClassName="underline text-brand-default cursor-auto"
+                    isPartiallyCurrent={true}
+                  >
                     {linkText}
                   </Link>
                 </li>

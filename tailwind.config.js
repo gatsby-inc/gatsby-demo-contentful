@@ -20,6 +20,8 @@ module.exports = {
         xxs: '.6rem',
       },
       gridTemplateColumns: {
+        ['auto-1fr']: 'auto 1fr',
+        ['1fr-auto']: '1fr-auto',
         blog: '2fr 1fr',
       },
       transitionProperty: {

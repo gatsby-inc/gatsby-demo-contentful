@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import { BLOCKS, MARKS } from '@contentful/rich-text-types'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
@@ -77,7 +79,14 @@ const options = {
 }
 
 const ContentfulRichTech = ({ richText }) => {
+  console.log('TODO add tables rich text option')
+
   return <div>{renderRichText(richText, options)}</div>
+}
+
+ContentfulRichTech.propTypes = {
+  /** Contentful rich text */
+  richText: PropTypes.string.isRequired,
 }
 
 export default ContentfulRichTech
