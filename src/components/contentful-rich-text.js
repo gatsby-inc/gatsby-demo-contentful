@@ -79,14 +79,12 @@ const options = {
 }
 
 const ContentfulRichTech = ({ richText }) => {
-  console.log('TODO add tables rich text option')
-
   return <div>{renderRichText(richText, options)}</div>
 }
 
 ContentfulRichTech.propTypes = {
   /** Contentful rich text */
-  richText: PropTypes.string.isRequired,
+  richText: PropTypes.any.isRequired,
 }
 
 export default ContentfulRichTech

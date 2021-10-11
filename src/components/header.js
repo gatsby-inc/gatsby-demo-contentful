@@ -47,7 +47,6 @@ const Header = () => {
                     to={`/${linkUrl}`}
                     className="p-2 hover:underline"
                     activeClassName="underline text-brand-default cursor-auto"
-                    isPartiallyCurrent={true}
                   >
                     {linkText}
                   </Link>

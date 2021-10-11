@@ -21,7 +21,7 @@ const Blog = ({ pageName }) => {
   `)
 
   return (
-    <ul>
+    <ul className="grid gap-20">
       {nodes.map((node, index) => {
         const {
           url,

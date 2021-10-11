@@ -24,9 +24,16 @@ const Seo = ({ customTitle, customDescription, customUrl, customImage }) => {
   `)
 
   const seoTitle = customTitle || title
-  const seoDescription = customDescription || description
+  const seoDescription = customDescription
+    ? customDescription.seoDescription
+    : description
   const seoUrl = customUrl ? `${url}/${customUrl}` : url
-  const seoImage = customImage ? `https://${customImage}` : `${url}/${image}`
+  const seoImage = customImage
+    ? `https://${customImage.gatsbyImageData.images.fallback.src.replace(
+        /\/\//g,
+        ''
+      )}`
+    : `${url}/${image}`
 
   return (
     <Helmet>
@@ -82,7 +89,7 @@ Seo.propTypes = {
   /** A custom meta url that overwrites the default url */
   customUrl: PropTypes.string,
   /** A custom open graph image that overwrites the default image */
-  customImage: PropTypes.string,
+  customImage: PropTypes.any,
 }
 
 export default Seo
