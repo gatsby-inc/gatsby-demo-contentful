@@ -53,10 +53,14 @@ const Page = ({
         </h1>
       ) : null}
 
-      <section className={`grid grid-cols-1 lg:grid-cols-${columns} gap-8`}>
+      <section className={`grid grid-cols-1 lg:grid-cols-${columns} gap-20`}>
         {pageBlocks
           ? pageBlocks.map((block, index) => {
-              return <div key={index}>{getBlock(block)}</div>
+              return (
+                <div className="flex flex-grow" key={index}>
+                  {getBlock(block)}
+                </div>
+              )
             })
           : null}
       </section>
@@ -98,9 +102,24 @@ export const query = graphql`
           internal {
             type
           }
+          alignSelf
+          textAlign
+          columns
           heading
           description {
+            description
+          }
+          richText {
             raw
+            references {
+              ... on ContentfulAsset {
+                contentful_id
+                title
+                description
+                gatsbyImageData(width: 1000)
+                __typename
+              }
+            }
           }
         }
         ... on ContentfulPageBlockBlogList {

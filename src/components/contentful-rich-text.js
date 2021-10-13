@@ -73,6 +73,7 @@ const options = {
     [BLOCKS.HR]: () => <hr className="mb-6" />,
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
       const { gatsbyImageData, description } = node.data.target
+
       return <GatsbyImage image={getImage(gatsbyImageData)} alt={description} />
     },
   },

@@ -14,7 +14,7 @@ const Post = ({
       postTitle,
       author,
       createdAt,
-      postContent,
+      richText,
     },
   },
 }) => {
@@ -46,7 +46,7 @@ const Post = ({
             </p>
           </div>
           <section>
-            <ContentfulRichTech richText={postContent} />
+            <ContentfulRichTech richText={richText} />
           </section>
         </div>
       </article>
@@ -70,14 +70,14 @@ export const query = graphql`
       postTitle
       author
       createdAt
-      postContent {
+      richText {
         raw
         references {
           ... on ContentfulAsset {
             contentful_id
             title
             description
-            gatsbyImageData(width: 1280)
+            gatsbyImageData(width: 1000)
             __typename
           }
         }

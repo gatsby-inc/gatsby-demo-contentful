@@ -15,7 +15,7 @@ const ContentfulPageBlockHero = ({ block }) => {
   return (
     <div className="flex justify-center lg:justify-start">
       <div className="grid lg:grid-cols-2 gap-10 items-center">
-        <div className="grid gap-6 lg:gap-10">
+        <div className="grid gap-8 lg:gap-10">
           <h1 className="text-4xl sm:text-5xl text-center lg:text-left font-black text-brand-primary leading-tight">
             <span className="text-black">{primaryHeading}</span>
             <br />
