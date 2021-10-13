@@ -14,7 +14,7 @@ const ContentfulPageBlockColumnSection = ({ block }) => {
       <div className={`grid gap-2 `}>
         {heading ? (
           <h2
-            className={`text-3xl sm:text-4xl text-left font-bold text-gray-700 leading-tight mb-2 text-left lg:${textAlign}`}
+            className={`text-3xl sm:text-4xl text-left font-black text-gray-700 leading-tight mb-2 text-left lg:${textAlign}`}
           >
             {heading}
           </h2>
