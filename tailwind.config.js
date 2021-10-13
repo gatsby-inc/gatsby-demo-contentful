@@ -1,5 +1,17 @@
 module.exports = {
-  purge: ['./src/**/*.{js,jsx,ts,tsx}'],
+  purge: {
+    content: ['./src/**/*.{js,jsx,ts,tsx}'],
+    // The classes are passed dynamically by Contentful -- don't purge them just because they're not used in the codebase
+    safelist: [
+      'self-auto',
+      'self-start',
+      'self-end',
+      'self-center',
+      'text-left',
+      'text-center',
+      'text-right',
+    ],
+  },
   darkMode: false,
   theme: {
     minHeight: {
