@@ -1,31 +1,65 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import Home from '../views/home'
-import Blog from '../views/blog'
-import Default from '../views/default'
 import Seo from '../components/seo'
 
-const getView = (url, pageName) => {
-  switch (url) {
-    case '/':
-      return <Home />
-    case 'blog':
-      return <Blog pageName={pageName} />
+import ContentfulPageBlockHero from '../components/contentful-page-block-hero'
+import ContentfulPageBlockColumnSection from '../components/contentful-page-block-column-section'
+import ContentfulPageBlockBlogList from '../components/contentful-page-block-blog-list'
+import ContentfulPageBlockContactForm from '../components/contentful-page-block-contact-form'
+
+const getBlock = (block) => {
+  const {
+    internal: { type },
+  } = block
+
+  // console.log(block)
+  // console.log(type)
+
+  switch (type) {
+    case 'ContentfulPageBlockHero':
+      return <ContentfulPageBlockHero block={block} />
+
+    case 'ContentfulPageBlockColumnSection':
+      return <ContentfulPageBlockColumnSection block={block} />
+
+    case 'ContentfulPageBlockBlogList':
+      return <ContentfulPageBlockBlogList />
+
+    case 'ContentfulPageBlockContactForm':
+      return <ContentfulPageBlockContactForm />
+
     default:
-      return <Default pageName={pageName} />
+      return null
   }
 }
 
 const Page = ({
   data: {
-    contentfulPages: { url, pageName },
+    contentfulPages: { url, seoTitle, seoDescription, pageBlocks, columns },
   },
 }) => {
   return (
     <>
-      <Seo customTitle={pageName} />
-      {getView(url, pageName)}
+      <Seo
+        customTitle={seoTitle}
+        customDescription={
+          seoDescription ? seoDescription.seoDescription : null
+        }
+      />
+      {seoTitle ? (
+        <h1 className="text-4xl sm:text-5xl text-left font-black text-brand-primary leading-tight mb-8">
+          {seoTitle}
+        </h1>
+      ) : null}
+
+      <section className={`grid grid-cols-1 lg:grid-cols-${columns} gap-8`}>
+        {pageBlocks
+          ? pageBlocks.map((block, index) => {
+              return <div key={index}>{getBlock(block)}</div>
+            })
+          : null}
+      </section>
     </>
   )
 }
@@ -37,6 +71,57 @@ export const query = graphql`
     contentfulPages(id: { eq: $id }) {
       url
       pageName
+      seoTitle
+      seoDescription {
+        seoDescription
+      }
+      columns
+      pageBlocks {
+        ... on ContentfulPageBlockHero {
+          internal {
+            type
+          }
+          primaryHeading
+          secondaryHeading
+          description {
+            description
+          }
+          cta {
+            ctaUrl
+            ctaText
+          }
+          heroImage {
+            gatsbyImageData
+          }
+        }
+        ... on ContentfulPageBlockColumnSection {
+          internal {
+            type
+          }
+          heading
+          description {
+            raw
+          }
+        }
+        ... on ContentfulPageBlockBlogList {
+          internal {
+            type
+          }
+          heading
+          description {
+            raw
+          }
+        }
+        ... on ContentfulPageBlockContactForm {
+          internal {
+            type
+          }
+          heading
+          description {
+            raw
+          }
+        }
+      }
     }
   }
 `
