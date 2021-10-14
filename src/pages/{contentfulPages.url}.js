@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { graphql } from 'gatsby'
 
 import Seo from '../components/seo'
@@ -7,6 +7,7 @@ import ContentfulPageBlockHero from '../components/contentful-page-block-hero'
 import ContentfulPageBlockColumnSection from '../components/contentful-page-block-column-section'
 import ContentfulPageBlockBlogList from '../components/contentful-page-block-blog-list'
 import ContentfulPageBlockContactForm from '../components/contentful-page-block-contact-form'
+import ContentfullPageBlockNewsletterSignup from '../components/contentful-page-block-newsletter-signup'
 
 const getBlock = (block) => {
   const {
@@ -29,38 +30,45 @@ const getBlock = (block) => {
     case 'ContentfulPageBlockContactForm':
       return <ContentfulPageBlockContactForm />
 
+    case 'ContentfulPageBlockNewsletterSignup':
+      return <ContentfullPageBlockNewsletterSignup block={block} />
+
     default:
       return null
   }
 }
 
 const Page = ({
+  data,
   data: {
-    contentfulPages: { url, seoTitle, seoDescription, pageBlocks, columns },
+    contentfulPages: {
+      url,
+      pageTitle,
+      seoTitle,
+      seoDescription,
+      pageBlocks,
+      columns,
+    },
   },
 }) => {
   return (
     <>
       <Seo
-        customTitle={seoTitle}
+        customTitle={seoTitle || null}
         customDescription={
           seoDescription ? seoDescription.seoDescription : null
         }
       />
-      {seoTitle ? (
+      {pageTitle ? (
         <h1 className="text-4xl sm:text-5xl text-left font-black text-brand-primary leading-tight mb-8">
-          {seoTitle}
+          {pageTitle}
         </h1>
       ) : null}
 
-      <section className={`grid grid-cols-1 lg:grid-cols-${columns} gap-20`}>
+      <section className={`grid gap-20 grid-cols-1 lg:grid-cols-${columns}`}>
         {pageBlocks
           ? pageBlocks.map((block, index) => {
-              return (
-                <div className="flex flex-grow" key={index}>
-                  {getBlock(block)}
-                </div>
-              )
+              return <Fragment key={index}>{getBlock(block)}</Fragment>
             })
           : null}
       </section>
@@ -74,7 +82,7 @@ export const query = graphql`
   query ($id: String) {
     contentfulPages(id: { eq: $id }) {
       url
-      pageName
+      pageTitle
       seoTitle
       seoDescription {
         seoDescription
@@ -126,18 +134,19 @@ export const query = graphql`
           internal {
             type
           }
-          heading
-          description {
-            raw
-          }
         }
         ... on ContentfulPageBlockContactForm {
           internal {
             type
           }
+        }
+        ... on ContentfulPageBlockNewsletterSignup {
+          internal {
+            type
+          }
           heading
           description {
-            raw
+            description
           }
         }
       }

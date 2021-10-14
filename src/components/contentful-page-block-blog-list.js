@@ -1,7 +1,8 @@
 import React from 'react'
+
 import { graphql, useStaticQuery, Link } from 'gatsby'
 
-const ContentfulPageBlockBlogList = ({ pageName }) => {
+const ContentfulPageBlockBlogList = () => {
   const {
     allContentfulPosts: { nodes },
   } = useStaticQuery(graphql`

@@ -26,6 +26,7 @@ module.exports = {
       '50vh': '50vh',
       '75vh': '75vh',
       '100vh': '100vh',
+      main: 'calc(100vh - 153px)',
     },
     extend: {
       colors: {
@@ -40,7 +41,7 @@ module.exports = {
       },
       gridTemplateColumns: {
         ['auto-1fr']: 'auto 1fr',
-        ['1fr-auto']: '1fr-auto',
+        ['1fr-auto']: '1fr auto',
         blog: '2fr 1fr',
       },
       transitionProperty: {

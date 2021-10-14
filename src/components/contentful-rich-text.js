@@ -74,7 +74,13 @@ const options = {
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
       const { gatsbyImageData, description } = node.data.target
 
-      return <GatsbyImage image={getImage(gatsbyImageData)} alt={description} />
+      return (
+        <GatsbyImage
+          image={getImage(gatsbyImageData)}
+          alt={description}
+          className="mb-10"
+        />
+      )
     },
   },
 }

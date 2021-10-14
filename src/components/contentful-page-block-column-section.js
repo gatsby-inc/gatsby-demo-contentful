@@ -11,16 +11,19 @@ const ContentfulPageBlockColumnSection = ({ block }) => {
     <div
       className={`grid gap-8 lg:gap-10 grid-cols-1 lg:grid-cols-${columns} ${alignSelf} text-left lg:${textAlign}`}
     >
-      <div className={`grid gap-2 `}>
+      <div className="grid gap-2">
         {heading ? (
           <h2
-            className={`text-3xl sm:text-4xl text-left font-black text-gray-700 leading-tight mb-2 text-left lg:${textAlign}`}
+            className={`text-3xl sm:text-4xl font-black text-gray-700 leading-tight mb-2 text-left lg:${textAlign}`}
           >
             {heading}
           </h2>
         ) : null}
         {description ? (
-          <p className="leading-loose">{description.description}</p>
+          <p
+            className="leading-loose"
+            dangerouslySetInnerHTML={{ __html: description.description }}
+          />
         ) : null}
       </div>
       {richText ? <ContentfulRichTech richText={richText} /> : null}

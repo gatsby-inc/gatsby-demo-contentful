@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 import Seo from '../components/seo'
 import ContentfulRichTech from '../components/contentful-rich-text'
@@ -27,23 +28,28 @@ const Post = ({
         customImage={featuredImage}
       />
       <article className="max-w-screen-lg mx-auto">
-        <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-blog">
+        <div className="grid gap-x-8 gap-y-10 grid-cols-1 lg:grid-cols-blog">
           <div>
-            <h1 className="text-4xl sm:text-5xl text-left font-black text-gray-700 leading-tight">
+            {featuredImage ? (
+              <GatsbyImage
+                image={getImage(featuredImage)}
+                alt={postTitle}
+                className="mb-6"
+              />
+            ) : null}
+            <h1 className="text-4xl sm:text-5xl text-left font-black text-gray-700 leading-tight mb-6">
               {postTitle}
             </h1>
           </div>
-          <div className="grid gap-2 text-sm text-gray-600 leading-relaxed justify-items-end text-right">
-            <p className="grid">
-              <span className="text-xs font-bold text-gray-500">Author:</span>
-              {author}
-            </p>
-            <p className="grid">
-              <span className="text-xs font-bold text-gray-500">
-                Date published:{' '}
-              </span>
-              {new Date(createdAt).toLocaleDateString()}
-            </p>
+          <div>
+            <div className="grid gap-1 text-sm mb-10">
+              <p className="text-brand-default font-bold text-base">{author}</p>
+              <p className="text-gray-600">
+                {new Date(createdAt).toLocaleDateString()}
+              </p>
+            </div>
+
+            <hr />
           </div>
           <section>
             <ContentfulRichTech richText={richText} />
