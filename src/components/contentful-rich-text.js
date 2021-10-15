@@ -1,9 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import slugify from '@sindresorhus/slugify'
 
 import { BLOCKS, MARKS } from '@contentful/rich-text-types'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+
+const createJumpLink = (children) => {
+  return (
+    <a
+      href={`#${slugify(children[0])}`}
+      className="
+        before:content-['#'] before:inline before:text-md before:mr-2 before:text-gray-300 
+        hover:before:content-['#'] hover:before:inline hover:before:text-md hover:before:mr-2 hover:before:text-brand-default"
+    >
+      {children}
+    </a>
+  )
+}
 
 const options = {
   renderMark: {
@@ -22,29 +36,31 @@ const options = {
         {children}
       </h2>
     ),
-    [BLOCKS.HEADING_2]: (node, children) => (
-      <h2 className="text-3xl sm:text-4xl text-left font-black text-gray-700 leading-tight mb-2">
-        {children}
-      </h2>
-    ),
+    [BLOCKS.HEADING_2]: (node, children) => {
+      return (
+        <h2 className="text-3xl sm:text-4xl text-left font-black text-gray-700 leading-tight mb-2">
+          {createJumpLink(children)}
+        </h2>
+      )
+    },
     [BLOCKS.HEADING_3]: (node, children) => (
       <h3 className="text-2xl sm:text-3xl text-left font-black text-gray-700 leading-tight mb-2">
-        {children}
+        {createJumpLink(children)}
       </h3>
     ),
     [BLOCKS.HEADING_4]: (node, children) => (
       <h4 className="text-xl sm:text-2xl text-left font-black text-gray-700 leading-tight mb-2">
-        {children}
+        {createJumpLink(children)}
       </h4>
     ),
     [BLOCKS.HEADING_5]: (node, children) => (
       <h5 className="text-lg sm:text-xl text-left font-black text-gray-700 leading-tight mb-2">
-        {children}
+        {createJumpLink(children)}
       </h5>
     ),
     [BLOCKS.HEADING_6]: (node, children) => (
       <h6 className="text-md sm:text-lg text-left font-black text-gray-700 leading-tight mb-2">
-        {children}
+        {createJumpLink(children)}
       </h6>
     ),
 

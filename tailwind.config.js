@@ -1,4 +1,5 @@
 module.exports = {
+  mode: 'jit',
   purge: {
     content: ['./src/**/*.{js,jsx,ts,tsx}'],
     // The classes are passed dynamically by Contentful -- don't purge them just because they're not used in the codebase
