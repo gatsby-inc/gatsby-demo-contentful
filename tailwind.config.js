@@ -48,6 +48,9 @@ module.exports = {
       transitionProperty: {
         left: 'left',
       },
+      inset: {
+        hash: '-1em',
+      },
       zIndex: {
         nav: '999',
       },

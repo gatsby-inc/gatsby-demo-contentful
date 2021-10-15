@@ -11,8 +11,14 @@ const createJumpLink = (children) => {
     <a
       href={`#${slugify(children[0])}`}
       className="
-        before:content-['#'] before:inline before:text-md before:mr-2 before:text-gray-300 
-        hover:before:content-['#'] hover:before:inline hover:before:text-md hover:before:mr-2 hover:before:text-brand-default"
+        relative
+        before:md:content-['#']
+        before:absolute 
+        before:inset-x-hash 
+        before:text-md 
+        before:text-gray-300
+        hover:md:before:content-['#']
+        hover:before:text-brand-default"
     >
       {children}
     </a>
