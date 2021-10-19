@@ -113,19 +113,42 @@ export const query = graphql`
           alignSelf
           textAlign
           columns
-          heading
-          description {
-            description
+          heading1
+          description1 {
+            description1
           }
-          richText {
-            raw
-            references {
-              ... on ContentfulAsset {
-                contentful_id
-                title
-                description
+          image1 {
+            ... on ContentfulContentBlockImage {
+              id
+              imageAlt
+              image {
                 gatsbyImageData(width: 1000)
-                __typename
+              }
+            }
+          }
+          heading2
+          description2 {
+            description2
+          }
+          image2 {
+            ... on ContentfulContentBlockImage {
+              id
+              imageAlt
+              image {
+                gatsbyImageData(width: 1000)
+              }
+            }
+          }
+          heading3
+          description3 {
+            description3
+          }
+          image3 {
+            ... on ContentfulContentBlockImage {
+              id
+              imageAlt
+              image {
+                gatsbyImageData(width: 1000)
               }
             }
           }
