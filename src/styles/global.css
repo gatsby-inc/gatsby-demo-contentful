@@ -5,6 +5,6 @@
 /* Contentful rich text specific styles */
 @layer base {
   p > a {
-    @apply text-brand-primary underline;
+    @apply text-brand-default underline;
   }
 }
