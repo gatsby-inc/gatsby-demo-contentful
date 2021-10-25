@@ -34,7 +34,7 @@ exports.createPages = async ({
         id: id,
         pagePath: url,
       },
-      defer: index + 1 > 10,
+      defer: index + 1 > 2,
     })
   })
 }

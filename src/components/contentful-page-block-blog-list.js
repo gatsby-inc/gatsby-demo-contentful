@@ -9,7 +9,7 @@ const ContentfulPageBlockBlogList = () => {
     {
       allContentfulPosts {
         nodes {
-          gatsbyPath(filePath: "/{contentfulPosts.url}")
+          url
           postTitle
           createdAt
           author
@@ -25,7 +25,7 @@ const ContentfulPageBlockBlogList = () => {
     <ul className="grid gap-20">
       {nodes.map((node, index) => {
         const {
-          gatsbyPath,
+          url,
           postTitle,
           createdAt,
           author,
@@ -33,7 +33,7 @@ const ContentfulPageBlockBlogList = () => {
         } = node
         return (
           <li key={index}>
-            <Link to={gatsbyPath} className="grid gap-y-2 text-gray-700 group">
+            <Link to={`/${url}`} className="grid gap-y-2 text-gray-700 group">
               <h2 className="text-3xl sm:text-4xl text-left font-black group-hover:text-brand-primary group-hover:underline leading-tight">
                 {postTitle}
               </h2>
