@@ -14,4 +14,5 @@ export const onRouteUpdate = ({ location }) => {
       top: hash.offsetTop,
     })
   }
+  return true
 }
