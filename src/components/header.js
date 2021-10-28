@@ -26,7 +26,7 @@ const Header = () => {
   }, [])
 
   return (
-    <header className="container mx-auto p-5">
+    <header className="container mx-auto p-5 min-h-header">
       <nav role="navigation" className="flex items-center">
         <Link to="/" className="mr-3 py-1" activeClassName="cursor-auto">
           <Logo />

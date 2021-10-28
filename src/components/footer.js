@@ -7,7 +7,7 @@ const Footer = () => {
   const links = useSecondaryLinks()
 
   return (
-    <footer className="container mx-auto p-4">
+    <footer className="container mx-auto p-4 min-h-footer">
       <hr className="py-2" />
 
       <div className="text-sm text-gray-400">

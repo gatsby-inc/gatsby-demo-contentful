@@ -27,7 +27,10 @@ module.exports = {
       '50vh': '50vh',
       '75vh': '75vh',
       '100vh': '100vh',
-      main: 'calc(100vh - 153px)',
+      header: '72px',
+      footer: '82px',
+      // calc = 100vh - (header + footer)px
+      main: 'calc(100vh - 154px)',
     },
     extend: {
       colors: {
