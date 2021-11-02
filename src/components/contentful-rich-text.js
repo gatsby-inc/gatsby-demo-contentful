@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import slugify from '@sindresorhus/slugify'
 
-import { BLOCKS, MARKS } from '@contentful/rich-text-types'
+import { INLINES, BLOCKS, MARKS } from '@contentful/rich-text-types'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
@@ -37,6 +37,16 @@ const options = {
     ),
   },
   renderNode: {
+    [INLINES.HYPERLINK]: (node, children) => (
+      <a
+        href={node.data.uri}
+        target="_blank"
+        rel="noreferrer"
+        className="text-brand-default underline"
+      >
+        {children}
+      </a>
+    ),
     [BLOCKS.HEADING_1]: (node, children) => (
       <h2 className="text-3xl sm:text-4xl text-left font-black text-gray-700 leading-tight mb-2">
         {children}
