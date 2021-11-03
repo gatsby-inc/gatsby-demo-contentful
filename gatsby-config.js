@@ -11,6 +11,7 @@ module.exports = {
       'Blazing fast modern site generator for React Go beyond static sites: build blogs, e-commerce sites, full-blown apps, and more with Gatsby',
     language: 'en-us',
     keywords: ['gatsby', 'gatsbyjs contentful'],
+    repo: 'https://github.com/gatsby-inc/gatsby-demo-contentful',
   },
   plugins: [
     'gatsby-plugin-postcss',
